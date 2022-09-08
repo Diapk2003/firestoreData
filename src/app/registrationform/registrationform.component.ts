@@ -11,42 +11,42 @@ import { Data } from '../data';
 })
 export class RegistrationformComponent implements OnInit {
 
-  editData:any = []
-  userId:any
+  editData: any = []
+  userId: any
   Registrationform!: FormGroup
   isEditable: boolean = false
 
-  constructor(private formbuilder: FormBuilder, private router: Router, private dataService: FireserviceService,private route:ActivatedRoute) { }
+  constructor(private formbuilder: FormBuilder, private router: Router, private dataService: FireserviceService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
     this.buildForm()
 
-  this.route.params.subscribe((param:any )=>{
-    this.userId = param['id']
+    this.route.params.subscribe((param: any) => {
+      this.userId = param['id']
 
-    if(this.userId != undefined){
-      this.isEditable = true;
-      this.getDataById()
-    }else{
-      this.isEditable = false;
-    }
-      
-  })
+      if (this.userId != undefined) {
+        this.isEditable = true;
+        this.getDataById()
+      } else {
+        this.isEditable = false;
+      }
 
-}
+    })
 
-public buildForm(){
-  this.Registrationform = this.formbuilder.group({
-    Name: ['', Validators.required],
-    Address: ['', Validators.required],
-    PinCode: ['', Validators.required],
-    Password: ['', Validators.required],
-    MobilNumber: ['', Validators.required],
-    userid: ['', Validators.required],
+  }
 
-  });
-}
+  public buildForm() {
+    this.Registrationform = this.formbuilder.group({
+      Name: ['', Validators.required],
+      Address: ['', Validators.required],
+      PinCode: ['', Validators.required],
+      Password: ['', Validators.required],
+      MobilNumber: ['', Validators.required],
+      userid: ['', Validators.required],
+
+    });
+  }
 
 
   submit() {
@@ -60,17 +60,17 @@ public buildForm(){
       data_userid: this.Registrationform.value.userid
     }
 
-    if(this.userId != undefined){
+    if (this.userId != undefined) {
 
-      this.dataService.updateData(this.userId,payload).then(()=>{
+      this.dataService.updateData(this.userId, payload).then(() => {
         alert("Note Update Successfully")
         this.Registrationform.reset()
       })
 
 
-    }else{
-      this.dataService.addData(payload).then((res)=>{
-        if(res){
+    } else {
+      this.dataService.addData(payload).then((res) => {
+        if (res) {
           alert('Data Added Succesfully')
         }
         this.Registrationform.reset()
@@ -79,18 +79,18 @@ public buildForm(){
 
   }
 
-  backtogal(){
+  backtogal() {
     this.router.navigate(['dashbord'])
   }
 
-  getDataById(){
-      this.editData = this.dataService.getDataById()
-        this.Registrationform.controls['Name'].setValue(this.editData.data_name)
-        this.Registrationform.controls['Address'].setValue(this.editData.data_address)
-        this.Registrationform.controls['PinCode'].setValue(this.editData.data_pincode)
-        this.Registrationform.controls['MobilNumber'].setValue(this.editData.data_mobileNo)
-        this.Registrationform.controls['Password'].setValue(this.editData.data_password)
-    }
+  getDataById() {
+    this.editData = this.dataService.getDataById()
+    this.Registrationform.controls['Name'].setValue(this.editData.data_name)
+    this.Registrationform.controls['Address'].setValue(this.editData.data_address)
+    this.Registrationform.controls['PinCode'].setValue(this.editData.data_pincode)
+    this.Registrationform.controls['MobilNumber'].setValue(this.editData.data_mobileNo)
+    this.Registrationform.controls['Password'].setValue(this.editData.data_password)
+  }
 
 
 }
