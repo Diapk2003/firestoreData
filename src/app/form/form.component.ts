@@ -20,5 +20,8 @@ export class FormComponent implements OnInit {
   dataList(){
     this.router.navigate(['datalist'])
   }
+  login(){
+    this.router.navigate(['login'])
+  }
 
 }

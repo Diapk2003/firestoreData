@@ -6,3 +6,9 @@ export interface Data{
     data_mobileNo:number,
     data_password:string,
 }
+export interface LoginData{
+    id:string,
+    data_userid:string,
+    data_password:string,
+
+}

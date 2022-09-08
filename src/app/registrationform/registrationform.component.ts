@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FireserviceService } from '../fireservice.service';
@@ -13,7 +13,7 @@ export class RegistrationformComponent implements OnInit {
 
   editData:any = []
   userId:any
-  form!: FormGroup
+  Registrationform!: FormGroup
   isEditable: boolean = false
 
   constructor(private formbuilder: FormBuilder, private router: Router, private dataService: FireserviceService,private route:ActivatedRoute) { }
@@ -37,12 +37,12 @@ export class RegistrationformComponent implements OnInit {
 }
 
 public buildForm(){
-  this.form = this.formbuilder.group({
-    Name: "",
-    Address: "",
-    PinCode: "",
-    Password: "",
-    MobilNumber: "",
+  this.Registrationform = this.formbuilder.group({
+    Name: ['', Validators.required],
+    Address: ['', Validators.required],
+    PinCode: ['', Validators.required],
+    Password: ['', Validators.required],
+    MobilNumber: ['', Validators.required],
 
   });
 }
@@ -51,18 +51,18 @@ public buildForm(){
   submit() {
     const payload: Data = {
       id: '',
-      data_name: this.form.value.Name,
-      data_address: this.form.value.Address,
-      data_pincode: this.form.value.PinCode,
-      data_mobileNo: this.form.value.MobilNumber,
-      data_password: this.form.value.Password
+      data_name: this.Registrationform.value.Name,
+      data_address: this.Registrationform.value.Address,
+      data_pincode: this.Registrationform.value.PinCode,
+      data_mobileNo: this.Registrationform.value.MobilNumber,
+      data_password: this.Registrationform.value.Password
     }
 
     if(this.userId != undefined){
 
       this.dataService.updateData(this.userId,payload).then(()=>{
         alert("Note Update Successfully")
-        this.form.reset()
+        this.Registrationform.reset()
       })
 
 
@@ -71,7 +71,7 @@ public buildForm(){
         if(res){
           alert('Data Added Succesfully')
         }
-        this.form.reset()
+        this.Registrationform.reset()
       })
     }
 
@@ -83,11 +83,11 @@ public buildForm(){
 
   getDataById(){
       this.editData = this.dataService.getDataById()
-        this.form.controls['Name'].setValue(this.editData.data_name)
-        this.form.controls['Address'].setValue(this.editData.data_address)
-        this.form.controls['PinCode'].setValue(this.editData.data_pincode)
-        this.form.controls['MobilNumber'].setValue(this.editData.data_mobileNo)
-        this.form.controls['Password'].setValue(this.editData.data_password)
+        this.Registrationform.controls['Name'].setValue(this.editData.data_name)
+        this.Registrationform.controls['Address'].setValue(this.editData.data_address)
+        this.Registrationform.controls['PinCode'].setValue(this.editData.data_pincode)
+        this.Registrationform.controls['MobilNumber'].setValue(this.editData.data_mobileNo)
+        this.Registrationform.controls['Password'].setValue(this.editData.data_password)
     }
 
 

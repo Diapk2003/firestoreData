@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginData } from '../data';
+import { FireserviceService } from '../fireservice.service';
 
 
 @Component({
@@ -11,47 +13,30 @@ import { Router } from '@angular/router';
 export class LoginpageComponent implements OnInit {
   public showPassword !: boolean;
   loginForm!: FormGroup
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router ,private dataService: FireserviceService) { }
   username:string = '';
   password:string = '';
+  userId:any
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       userid: [""],
       password: [""],
     })
   }
-
-  // login() {
-  //   console.log(this.loginForm.value.user)
-  //   const user = this.loginForm.value.user
-  //   const password = this.loginForm.value.password
-  //   if (user === this.username && password === this.password) {
-  //     alert("login is Succesful !!"),
-  //       this.router.navigate(['admin'])
-  //   } else {
-  //     alert("invalid password or username")
-  //   }
- 
-    // this.loginForm.reset()
-
-  // }
   submit() {
-    console.log(this.loginForm.value);
+    const payload: LoginData = {
+      id: '',
+      data_userid: this.loginForm.value.userid,
+      data_password: this.loginForm.value.password,
 
-  //   const payload: Data = {
-  //     id: '',
-  //     data_userid: this.loginForm.value.Name,
-  //     data_password: this.loginForm.value.Password
-  //   }
+    }
 
-  //   this.dataService.addData(payload).then((res)=>{
-  //     if(res){
-  //       alert('Data Added Succesfully')
-  //     }
-  //     this.loginForm.reset()
-  //   })
-  // }
- 
-
+    this.dataService.addloginData(payload).then((res)=>{
+          if(res){
+            alert(' Login is Succesfully !! ')
+          }
+          this.loginForm.reset()
+          this.router.navigate(['dashbord'])
+        })
 }
 }
