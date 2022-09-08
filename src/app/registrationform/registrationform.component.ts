@@ -43,6 +43,7 @@ public buildForm(){
     PinCode: ['', Validators.required],
     Password: ['', Validators.required],
     MobilNumber: ['', Validators.required],
+    userid: ['', Validators.required],
 
   });
 }
@@ -55,7 +56,8 @@ public buildForm(){
       data_address: this.Registrationform.value.Address,
       data_pincode: this.Registrationform.value.PinCode,
       data_mobileNo: this.Registrationform.value.MobilNumber,
-      data_password: this.Registrationform.value.Password
+      data_password: this.Registrationform.value.Password,
+      data_userid: this.Registrationform.value.userid
     }
 
     if(this.userId != undefined){

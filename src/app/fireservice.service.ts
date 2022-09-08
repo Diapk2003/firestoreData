@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { addDoc, collectionData, deleteDoc, doc, Firestore, updateDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { Data, LoginData } from './data';
+import { Data } from './data';
 import { collection, getFirestore } from '@firebase/firestore';
 @Injectable({
   providedIn: 'root'
@@ -47,13 +47,8 @@ export class FireserviceService {
   }
 
 
-  // Login Data
 
-   // add new data code here
-    addloginData(data: LoginData) {
-    data.id = doc(collection(this.fService, 'id')).id
-    return addDoc(collection(this.fService, 'LoginData'), data)
-  }
+  
 }
 
 

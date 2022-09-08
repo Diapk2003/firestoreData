@@ -1,5 +1,4 @@
 
-
 <!-- login box -->
 <div class="bg">
  <div class="page">
@@ -8,21 +7,21 @@
                 <img class="image" src="https://colorlib.com/etc/regform/colorlib-regform-7/images/signin-image.jpg"
                     alt="">
             </div>
-            <form  [formGroup]="loginForm" >
+            <form   (ngSubmit)="login()">
                 <div class="">
                     <div class="form-group">
                         <h1 class="signup">Sign Up</h1>
-                        <label class="form-label"> Username:</label><span class="required">*</span>
-                        <input class="form-control"  type ="text" formControlName="userid" name="username" placeholder="Enter username..." required>
-                        <label class="form-label"> Password:</label><span class="required">*</span>
-                        <input class="form-control" [type] ="showPassword ? 'text' : 'password'" formControlName="password" name="Password" placeholder="Enter Password..." required>
+                        <label class="form-label"> Username:</label>
+                        <input class="form-control" (change)="method_username($event)" type ="text" name="username" placeholder="Enter username..." >
+                        <label class="form-label"> Password:</label>
+                        <input class="form-control" (change)="method_password($event)" [type] ="showPassword ? 'text' : 'password'" name="Password" placeholder="Enter Password..." >
                         <i class="fa fa-eye icon1" aria-hidden="true"
                         (click)="showPassword = !showPassword" [class.hide] ="showPassword"></i>
                         <i class="fa fa-eye-slash icon2" aria-hidden="true"
                         (click)="showPassword = !showPassword" [class.hide] ="!showPassword"></i>  
                     </div>
                     <div class="mt-2  form-group">
-                        <button type="submit" [disabled]="loginForm.invalid" (click)="submit()" class="btn btn-outline-success">LogIn</button>                      
+                        <button type="submit"  class="btn btn-outline-success">LogIn</button>
                     </div>  
                     <div> 
                     </div>

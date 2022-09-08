@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginData } from '../data';
 import { FireserviceService } from '../fireservice.service';
 
 
@@ -12,31 +11,38 @@ import { FireserviceService } from '../fireservice.service';
 })
 export class LoginpageComponent implements OnInit {
   public showPassword !: boolean;
-  loginForm!: FormGroup
-  constructor(private formBuilder: FormBuilder, private router: Router ,private dataService: FireserviceService) { }
+ loginForm!: FormGroup
+  constructor(private formBuilder: FormBuilder, private router: Router) { }
   username:string = '';
   password:string = '';
-  userId:any
+
+
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      userid: [""],
-      password: [""],
-    })
-  }
-  submit() {
-    const payload: LoginData = {
-      id: '',
-      data_userid: this.loginForm.value.userid,
-      data_password: this.loginForm.value.password,
+      user: ['dipak'],
+      password: ['123'],
 
+    }) 
+  }
+
+  login() {
+    console.log(this.loginForm.value.user)
+    const user = this.loginForm.value.user
+    const password = this.loginForm.value.password
+    if (user === this.username && password === this.password) {
+      alert("login is Succesful !!"),
+        this.router.navigate(['dashbord'])
+    } else {
+      alert("invalid password or username")
     }
 
-    this.dataService.addloginData(payload).then((res)=>{
-          if(res){
-            alert(' Login is Succesfully !! ')
-          }
-          this.loginForm.reset()
-          this.router.navigate(['dashbord'])
-        })
-}
+  }
+ 
+ method_username(e:any){
+    this.username = e.target.value;
+  }
+  method_password(e:any){
+    this.password = e.target.value;
+  } 
+ 
 }
