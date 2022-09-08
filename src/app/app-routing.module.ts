@@ -8,7 +8,7 @@ import { RegistrationformComponent } from './registrationform/registrationform.c
 const routes: Routes = [
   {
     path:'',
-    redirectTo:'dashbord',
+    redirectTo:'login',
     pathMatch:'full'
   },
   {
