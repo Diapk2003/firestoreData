@@ -77,14 +77,23 @@
     }
     .icon1{
       position: absolute;
-      top: 287px;
-      right: 106px;
+      top: 68%;
+      right: 8%;
     }
     .icon2{
       position: absolute;
-      top: 287px;
-      right: 106px;
+      top: 68%;
+      right: 8%;
     }
     .required{
         color: red;
     }
+
+    // /new add 
+    .divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
