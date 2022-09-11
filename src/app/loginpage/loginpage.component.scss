@@ -1,99 +1,108 @@
+// login box
+.bg {
+  background-color: #0000000f;
+  height: 100vh;
+}
 
-  // login box
-  .bg{
-    background-color: #0000000f;
-    height: 100vh;
-  }
-  .page {
-      width: 60%;
-      height: 500px;
-      background-color: white;
-      position: relative;
-      top: 80px;
-      left: 20%;
-      // border: 1px solid black;
-      border-radius: 20px;
-      box-shadow: 5px 5px 5px 5px white;
-      display: flex;
-      justify-content: center;
-  }
-  
-  .pic {
-      display: flex;
-      padding-left: 30px;
-      align-items: center;
-  
-  }
-  
-  .form {
-      padding-right: 30px;
-      display: flex;
-      align-items: center;
-  }
-  
-  .form-group {
-      margin-left: 50px;
-      width: 100%
-  }
-  
-  .signbtn {
-      margin-left: 50px;
-  }
-  
-  .signup {
-      font-weight: 700;
-      font-family: -webkit-body;
-      color: #563d7c
-      
-  }
-  
-  .image {
-      height: 450px;
-  }
-  
-  .forgotPassword {
-      margin-left: -66%;
-      margin-top: 24%;
-  }
-  
-  .SignUp {
-      margin-left: 14px;
-  }
-  .eyebutton{
-      position: absolute;
-      right: 58px;
-      top: 254px;
-      border: none;
-      background: white;
-  }
-  
-    
-    p {
-      font-family: Lato;
-    }
-    
-    .hide {
-      display: none;
-    }
-    .icon1{
-      position: absolute;
-      top: 68%;
-      right: 8%;
-    }
-    .icon2{
-      position: absolute;
-      top: 68%;
-      right: 8%;
-    }
-    .required{
-        color: red;
-    }
+.page {
+  width: 60%;
+  height: 500px;
+  background-color: white;
+  position: relative;
+  top: 80px;
+  left: 20%;
+  // border: 1px solid black;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px 5px white;
+  display: flex;
+  justify-content: center;
+}
 
-    // /new add 
-    .divider:after,
+.pic {
+  display: flex;
+  padding-left: 30px;
+  align-items: center;
+
+}
+
+.form {
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.form-group {
+  margin-left: 50px;
+  width: 100%
+}
+
+.signbtn {
+  margin-left: 50px;
+}
+
+.signup {
+  font-weight: 700;
+  font-family: -webkit-body;
+  color: #563d7c
+}
+
+.image {
+  height: 450px;
+}
+
+.forgotPassword {
+  margin-left: -66%;
+  margin-top: 24%;
+}
+
+.SignUp {
+  margin-left: 14px;
+}
+
+.eyebutton {
+  position: absolute;
+  right: 58px;
+  top: 254px;
+  border: none;
+  background: white;
+}
+
+
+p {
+  font-family: Lato;
+}
+
+.hide {
+  display: none;
+}
+
+.icon1 {
+  position: absolute;
+  top: 68%;
+  right: 8%;
+}
+
+.icon2 {
+  position: absolute;
+  top: 68%;
+  right: 8%;
+}
+
+.required {
+  color: red;
+}
+
+// /new add 
+.divider:after,
 .divider:before {
-content: "";
-flex: 1;
-height: 1px;
-background: #eee;
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+.loginpage {
+  font-family: 'Dawning of a New Day', cursive;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
 }
