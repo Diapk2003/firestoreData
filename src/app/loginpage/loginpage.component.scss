@@ -106,3 +106,12 @@ p {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 20px;
 }
+.password_forgot{
+  label{
+    color: #2679e1;
+    &:hover{
+      transform: scale(1.1);
+      transition: all 0.1s ease-in-out;
+    }
+  }
+}

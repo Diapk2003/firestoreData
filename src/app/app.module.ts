@@ -14,7 +14,10 @@ import { getFirestore,provideFirestore} from '@angular/fire/firestore'
 import { environment } from 'src/environments/environment.prod';
 import {AngularFireModule} from "@angular/fire/compat";
 import { MenubarComponent } from './menubar/menubar.component';
-
+import {provideAuth,getAuth} from '@angular/fire/auth'
+import { from } from 'rxjs';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { CreateuserComponent } from './createuser/createuser.component';
 // import { AngularFireModule } from '@angular/fire/compat';
 // import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 // import { AngularFireStorageModule } from '@angular/fire/compat/storage';
@@ -28,7 +31,9 @@ import { MenubarComponent } from './menubar/menubar.component';
     FormComponent,
     DatalistComponent,
     LoginpageComponent,
-    MenubarComponent
+    MenubarComponent,
+    ForgotpasswordComponent,
+    CreateuserComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +44,7 @@ import { MenubarComponent } from './menubar/menubar.component';
     AngularFireModule,
     provideFirebaseApp(()=>initializeApp(environment.firebaseConfig)),
     provideFirestore(()=> getFirestore()),
+    provideAuth(()=> getAuth())
 
     // AngularFireAuthModule,
     // AngularFireStorageModule,

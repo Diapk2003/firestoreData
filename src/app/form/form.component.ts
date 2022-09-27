@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FireserviceService } from '../fireservice.service';
+import { HotToastService} from '@ngneat/hot-toast'
 
 @Component({
   selector: 'app-form',
@@ -8,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class FormComponent implements OnInit {
 
-  constructor( private router:Router) { }
+  constructor( private router:Router,private auth :FireserviceService,  private toast:HotToastService) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +24,16 @@ export class FormComponent implements OnInit {
   }
   login(){
     this.router.navigate(['login'])
+  }
+  logout(){
+    this.auth.logout().pipe(
+      this.toast.observe({
+        success:'logout SuccessFully ...',
+        loading:'Logging in...',
+      })
+    ).subscribe(()=>{
+      this.router.navigate(['login'])
+    })
   }
 
 }

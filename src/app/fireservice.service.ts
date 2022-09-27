@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 import { addDoc, collectionData, deleteDoc, doc, Firestore, updateDoc } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { from, Observable, switchMap } from 'rxjs';
 import { Data } from './data';
 import { collection, getFirestore } from '@firebase/firestore';
+import { Auth } from '@angular/fire/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { sendPasswordResetEmail } from "firebase/auth";
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class FireserviceService {
   getEditData: any = []
 
-  constructor(private fService: Firestore) { }
+  constructor(private fService: Firestore, private auth : Auth) { }
 
   // Registration Data
 
@@ -46,9 +51,22 @@ export class FireserviceService {
     return updateDoc(dataRef, Datas)
   }
 
+login(username : string, password: string){
+  return from(signInWithEmailAndPassword(this.auth,username,password));
+}
+
+signUp(name:string, email:string, password:string){
+  return from(createUserWithEmailAndPassword(this.auth, email, password)
+  ).pipe(switchMap(({user})=> updateProfile(user,{displayName:name})))
+}
+
+logout(){
+  return from(this.auth.signOut());
+}
 
 
-  
+
+
 }
 
 

@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "firestoredata-c87f3"
+  },
+  "targets": {
+    "firestoredata-c87f3": {
+      "hosting": {
+        "firebase": [
+          "firestoredata-c87f3"
+        ]
+      }
+    }
   }
 }

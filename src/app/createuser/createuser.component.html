@@ -1,0 +1,62 @@
+<section class="vh-100" style="background-color: #508bfc;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5  Create_user_item ">
+                        <h2>Create User</h2>
+                        <form [formGroup]="createUserForm" (ngSubmit)="submitCreateUserData()">
+                            <div class="form-outline mb-4">
+                                <label class="form-label"> Name</label>
+                                <input type="email" placeholder="Name" formControlName="name"
+                                    class="form-control form-control-lg" required>
+                            </div>
+                            <div *ngIf="createuserGenerate['name'].touched && createuserGenerate['name'].invalid">
+                                <div *ngIf="createuserGenerate['name'].errors?.['required']" class="errorMsg">
+                                    *Name is required
+                                </div>
+                                <div *ngIf="createuserGenerate['name'].errors?.['pattern']" class="errorMsg">
+                                    *Please enter valid name.
+                                </div>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label class="form-label"> Email </label>
+                                <input type="email" placeholder="Username" formControlName="email"
+                                    class="form-control form-control-lg" />
+                            </div>
+                            <div *ngIf="createuserGenerate['email'].touched && createuserGenerate['email'].invalid">
+                                <div *ngIf="createuserGenerate['email'].errors?.['required']" class="errorMsg">
+                                    *Email is required
+                                </div>
+                                <div *ngIf="createuserGenerate['email'].errors" class="errorMsg">
+                                    *Please enter valid email.
+                                </div>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label class="form-label">Password</label>
+                                <input type="email" placeholder="Password" formControlName="password"
+                                    class="form-control form-control-lg" />
+                                    <div *ngIf="createuserGenerate['password'].touched && createuserGenerate['password'].invalid">
+                                        <div *ngIf="createuserGenerate['password'].errors?.['required']" class="errorMsg">
+                                            *Name is required
+                                        </div>
+                                        <div *ngIf="createuserGenerate['password'].errors" class="errorMsg">
+                                            *Please enter valid password min 6 digit required.
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label class="form-label"> Confirm Password</label>
+                                <input type="email" placeholder="Confirm Password" formControlName="confirmPassword"
+                                    class="form-control form-control-lg" />
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
