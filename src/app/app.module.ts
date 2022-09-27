@@ -13,6 +13,7 @@ import { provideFirebaseApp,initializeApp} from '@angular/fire/app'
 import { getFirestore,provideFirestore} from '@angular/fire/firestore'
 import { environment } from 'src/environments/environment.prod';
 import {AngularFireModule} from "@angular/fire/compat";
+import { MenubarComponent } from './menubar/menubar.component';
 
 // import { AngularFireModule } from '@angular/fire/compat';
 // import { AngularFireAuthModule } from '@angular/fire/compat/auth';
@@ -26,7 +27,8 @@ import {AngularFireModule} from "@angular/fire/compat";
     RegistrationformComponent,
     FormComponent,
     DatalistComponent,
-    LoginpageComponent
+    LoginpageComponent,
+    MenubarComponent
   ],
   imports: [
     BrowserModule,
