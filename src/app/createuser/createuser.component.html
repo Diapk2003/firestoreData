@@ -16,8 +16,7 @@
                             placeholder="Enter Name..">
                     </div>
                     <div *ngIf="createuserGenerate['name'].touched && createuserGenerate['name'].invalid">
-                        <div *ngIf="createuserGenerate['name'].errors?.['required']" class="errorMsg">*party
-                            Name is required
+                        <div *ngIf="createuserGenerate['name'].errors?.['required']" class="errorMsg">*Name is required
                         </div>
                         <div *ngIf="createuserGenerate['name'].errors?.['pattern']" class="errorMsg">
                             *Please enter valid Name.
