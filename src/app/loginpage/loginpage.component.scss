@@ -40,21 +40,16 @@
   margin-left: 50px;
 }
 
-.signup {
+.signin {
   font-weight: 700;
   font-family: -webkit-body;
-  color: #0069d9
+  color: #0069d9;
+  text-align: center;
 }
 
 .image {
   height: 450px;
 }
-
-// .forgotPassword {
-//   margin-left: -66%;
-//   margin-top: 24%;
-// }
-
 .SignUp {
   margin-left: 14px;
 }
@@ -75,18 +70,6 @@ p {
 .hide {
   display: none;
 }
-
-// .icon1 {
-//   position: absolute;
-//   top: 60%;
-//   right: 6%;
-// }
-
-// .icon2 {
-//   position: absolute;
-//   top: 60%;
-//   right: 6%;
-// }
 
 .icon {
   float: right;
@@ -122,6 +105,7 @@ p {
 
   span {
     color: #2679e1;
+
 
     &:hover {
       transform: scale(1.1);
