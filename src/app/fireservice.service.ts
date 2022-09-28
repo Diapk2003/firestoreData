@@ -64,6 +64,14 @@ logout(){
   return from(this.auth.signOut());
 }
 
+// async resetPassword(email: string): Promise<void> {
+//   await this.afAuth.auth.sendPasswordResetEmail(email).then(() => {
+//      this.router.navigate(['auth/reset-confirm']);
+//   }).catch((error) => {
+//      this.notifier.showError(error.message);
+//   });
+// }
+
 
 
 
