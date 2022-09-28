@@ -1,5 +1,48 @@
-.Create_user_item{
-    h2{
+.new_user_item {
+    width: 100%;
+    height: 100vh;
+    background-color: #65686a17;
+    .shadow-2-strong {
+        border-radius: 1rem;
+        background: #fff;
+        box-shadow: 0 4px 24px #22292f1a;
+        width: 100%;
+    }
+
+}
+.container{
+    padding: 24%;
+}
+.Create_user_item {
+    h2 {
         text-align: center;
+        color: #2679e1;
+        font-weight: 700;
     }
 }
+.item{
+    padding: 1%;
+}
+.button{
+    margin: 5%;
+        display: flex;
+        justify-content: center;
+}
+.errorMsg {
+    color: red;
+}
+.hide {
+    display: none;
+  }
+  .icon1 {
+    position: absolute;
+    bottom: 23%;
+    right: 8%;
+  }
+  
+  .icon2 {
+    position: absolute;
+    bottom: 23%;
+    right: 8%;
+  }
+  

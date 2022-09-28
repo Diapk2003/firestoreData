@@ -26,12 +26,7 @@ export class FormComponent implements OnInit {
     this.router.navigate(['login'])
   }
   logout(){
-    this.auth.logout().pipe(
-      this.toast.observe({
-        success:'logout SuccessFully ...',
-        loading:'Logging in...',
-      })
-    ).subscribe(()=>{
+    this.auth.logout().subscribe(()=>{
       this.router.navigate(['login'])
     })
   }

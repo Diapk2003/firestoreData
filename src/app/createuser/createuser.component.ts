@@ -31,6 +31,7 @@ export function ConfirmPasswordValidator(controlName: string, matchingControlNam
 export class CreateuserComponent implements OnInit {
 
   createUserForm!: FormGroup
+  public showPassword !: boolean;
 
   constructor(private fb: FormBuilder, private auth:FireserviceService, private toast:HotToastService, private router:Router) { }
 
@@ -44,9 +45,9 @@ export class CreateuserComponent implements OnInit {
   formBuilder(): void {
     this.createUserForm = this.fb.group({
       name: ['', [Validators.required,Validators.pattern(/^[a-zA-Z- /]*$/)]],
-      email: ['', [Validators.required,Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
+      email: ['', [Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
+      password: ['', [Validators.required, Validators.pattern("[A-Za-z0-9]{6,}")]],
+      confirmPassword: ['', [Validators.required]],
     },
       {
         validator: ConfirmPasswordValidator("password", "confirmPassword")
@@ -71,7 +72,8 @@ export class CreateuserComponent implements OnInit {
         
       })
       ).subscribe(() => {
-        this.router.navigate(['login'])
+        debugger
+        this.router.navigate(['/login'])
       })
   }
 
