@@ -41,43 +41,34 @@
         </div>
         <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
           <form [formGroup]="loginForm" (ngSubmit)="login()">
-            <h1 class="signup">Sign Up</h1>
+            <h1 class="signup">Sign In</h1>
             <!-- Email input -->
-            <div class="form-outline mb-4">
+            <div class="form-outline mt-4">
               <label class="form-label"> Username:</label>
               <input type="email" id="form1Example13" formControlName="user"
                 class="form-control form-control-lg" />
             </div>
 
             <!-- Password input -->
-            <div class="form-outline mb-4">
+            <div class="form-outline mt-4">
               <label class="form-label"> Password:</label>
               <input type="password" id="form1Example23" formControlName="password" 
                 [type]="showPassword ? 'text' : 'password'" class="form-control form-control-lg" />
+             <div class="icon">
               <i class="fa fa-eye icon1" aria-hidden="true" (click)="showPassword = !showPassword"
-                [class.hide]="showPassword"></i>
+              [class.hide]="showPassword"></i>
               <i class="fa fa-eye-slash icon2" aria-hidden="true" (click)="showPassword = !showPassword"
                 [class.hide]="!showPassword"></i>
+             </div>
             </div>
             <div class="password_forgot">
-              <div class="row">
-                <div class="col-md-6">
-                  <label routerLink="/forgotpassword">Forgot Password</label>
-                </div>
-                <div class="col-md-6">
-                  <label routerLink="/createuser">Create User</label>
-                </div>
-              </div>
-
+                  <span routerLink="/forgotpassword">Forgot Password</span>
+                  <span routerLink="/createuser">Create User</span>
             </div>
-
-
-
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
-
-
-
+            <div class="mt-3">
+             <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+            </div>
           </form>
         </div>
       </div>

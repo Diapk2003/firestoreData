@@ -33,7 +33,7 @@
 
 .form-group {
   margin-left: 50px;
-  width: 100%
+  // width: 100%
 }
 
 .signbtn {
@@ -50,10 +50,10 @@
   height: 450px;
 }
 
-.forgotPassword {
-  margin-left: -66%;
-  margin-top: 24%;
-}
+// .forgotPassword {
+//   margin-left: -66%;
+//   margin-top: 24%;
+// }
 
 .SignUp {
   margin-left: 14px;
@@ -76,16 +76,24 @@ p {
   display: none;
 }
 
-.icon1 {
-  position: absolute;
-  top: 60%;
-  right: 6%;
-}
+// .icon1 {
+//   position: absolute;
+//   top: 60%;
+//   right: 6%;
+// }
 
-.icon2 {
-  position: absolute;
-  top: 60%;
-  right: 6%;
+// .icon2 {
+//   position: absolute;
+//   top: 60%;
+//   right: 6%;
+// }
+
+.icon {
+  float: right;
+  position: relative;
+  bottom: 36px;
+  right: 15px;
+  color: #808080;
 }
 
 .required {
@@ -106,10 +114,16 @@ p {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 20px;
 }
-.password_forgot{
-  label{
+
+.password_forgot {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  span {
     color: #2679e1;
-    &:hover{
+
+    &:hover {
       transform: scale(1.1);
       transition: all 0.1s ease-in-out;
     }

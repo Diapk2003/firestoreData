@@ -1,75 +1,79 @@
-<section class="vh-100 new_user_item">
-    <div class="container py-5 h-100">
-        <div class="user_list">
-            <div>
-                <div class="card shadow-2-strong">
-                    <div class="card-body Create_user_item ">
-                        <h2>Create New User</h2>
-                        <form [formGroup]="createUserForm" (ngSubmit)="submitCreateUserData()">
-                            <div class="form-content">
-                                <div class="item">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" class="form-control" formControlName="name"
-                                        placeholder="Enter Name..">
-                                </div>
-                                <div *ngIf="createuserGenerate['name'].touched && createuserGenerate['name'].invalid">
-                                    <div *ngIf="createuserGenerate['name'].errors?.['required']" class="errorMsg">*party
-                                        Name is required
-                                    </div>
-                                    <div *ngIf="createuserGenerate['name'].errors?.['pattern']" class="errorMsg">
-                                        *Please enter valid Name.
-                                    </div>
-                                </div>
-                                <div class="item ">
-                                    <label class="form-label">Email</label>
-                                    <input type="text" class="form-control" formControlName="email"
-                                        placeholder="Enter Email..">
-                                </div>
-                                <div *ngIf="createuserGenerate['email'].touched && createuserGenerate['email'].invalid">
-                                    <div *ngIf="createuserGenerate['email'].errors?.['required']" class="errorMsg">
-                                        *Email is required
-                                    </div>
-                                    <div *ngIf="createuserGenerate['email'].errors?.['pattern']" class="errorMsg">
-                                        *Please enter valid Email.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item ">
-                                <label class="form-label">Password:</label>
-                                <input type="password" placeholder="Enter password.." class="form-control"
-                                    formControlName="password" [type]="showPassword ? 'text' : 'password'">
-                                <i class="fa fa-eye icon1" aria-hidden="true" (click)="showPassword = !showPassword"
-                                    [class.hide]="showPassword"></i>
-                                <i class="fa fa-eye-slash icon2" aria-hidden="true"
-                                    (click)="showPassword = !showPassword" [class.hide]="!showPassword"></i>
-                            </div>
-                            <div
-                                *ngIf="createuserGenerate['password'].touched && createuserGenerate['password'].invalid">
-                                <div *ngIf="createuserGenerate['password'].errors?.['required']" class="errorMsg">
-                                    *password is required
-                                </div>
-                                <div *ngIf="createuserGenerate['password'].errors?.['pattern']" class="errorMsg">
-                                    *Please enter valid 6 characters minimum.
-                                </div>
-                            </div>
-                            <div class="item ">
-                                <label class="form-label">Confirm Password</label>
-                                <input type="password" placeholder="Enter password.." class="form-control"
-                                    formControlName="confirmPassword">
-                            </div>
-                            <div
-                                *ngIf="createuserGenerate['confirmPassword'].touched && createuserGenerate['confirmPassword'].invalid">
-                                <div *ngIf="createuserGenerate['confirmPassword'].errors" class="errorMsg">
-                                    *Password can not be Match
-                                </div>
-                            </div>
-                            <div class="button">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </form>
+<section class="vh-100" style="font-family: -webkit-body; font-weight: 400;">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="../../assets/img/Create New User.jpg" class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+            <div class="item">
+                <h1>Create New User</h1> 
+            </div>
+            <form [formGroup]="createUserForm" (ngSubmit)="submitCreateUserData()">
+                <div class="form-content">
+                    <div class="item">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" formControlName="name"
+                            placeholder="Enter Name..">
+                    </div>
+                    <div *ngIf="createuserGenerate['name'].touched && createuserGenerate['name'].invalid">
+                        <div *ngIf="createuserGenerate['name'].errors?.['required']" class="errorMsg">*party
+                            Name is required
+                        </div>
+                        <div *ngIf="createuserGenerate['name'].errors?.['pattern']" class="errorMsg">
+                            *Please enter valid Name.
+                        </div>
+                    </div>
+                    <div class="item ">
+                        <label class="form-label">Email</label>
+                        <input type="text" class="form-control" formControlName="email"
+                            placeholder="Enter Email..">
+                    </div>
+                    <div *ngIf="createuserGenerate['email'].touched && createuserGenerate['email'].invalid">
+                        <div *ngIf="createuserGenerate['email'].errors?.['required']" class="errorMsg">
+                            *Email is required
+                        </div>
+                        <div *ngIf="createuserGenerate['email'].errors?.['pattern']" class="errorMsg">
+                            *Please enter valid Email.
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="item ">
+                    <label class="form-label">Password:</label>
+                    <input type="password" placeholder="Enter password.." class="form-control"
+                        formControlName="password" [type]="showPassword ? 'text' : 'password'">
+                        <div class="icon">
+                            <i class="fa fa-eye icon1" aria-hidden="true" (click)="showPassword = !showPassword"
+                            [class.hide]="showPassword"></i>
+                            <i class="fa fa-eye-slash icon2" aria-hidden="true" (click)="showPassword = !showPassword"
+                              [class.hide]="!showPassword"></i>
+                           </div>
+                </div>
+                <div
+                    *ngIf="createuserGenerate['password'].touched && createuserGenerate['password'].invalid">
+                    <div *ngIf="createuserGenerate['password'].errors?.['required']" class="errorMsg">
+                        *password is required
+                    </div>
+                    <div *ngIf="createuserGenerate['password'].errors?.['pattern']" class="errorMsg">
+                        *Please enter valid 6 characters minimum.
+                    </div>
+                </div>
+                <div class="item ">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" placeholder="Enter password.." class="form-control"
+                        formControlName="confirmPassword">
+                </div>
+                <div
+                    *ngIf="createuserGenerate['confirmPassword'].touched && createuserGenerate['confirmPassword'].invalid">
+                    <div *ngIf="createuserGenerate['confirmPassword'].errors" class="errorMsg">
+                        *Password can not be Match
+                    </div>
+                </div>
+                <div class="button">
+                    <button type="submit" [disabled]="createUserForm.invalid" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
         </div>
+      </div>
     </div>
-</section>
+
+  </section>
