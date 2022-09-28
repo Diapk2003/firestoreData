@@ -13,10 +13,12 @@ export class ForgotpasswordComponent implements OnInit {
 
   forgotForm!: FormGroup
   constructor(private formBuilder: FormBuilder, private router: Router, private auth:FireserviceService, private toast:HotToastService) { }
-
+  get forgotpasswordGenerate() {
+    return this.forgotForm.controls 
+   }
   ngOnInit(): void {
     this.forgotForm = this.formBuilder.group({
-      email: [''],
+      email: ['',[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
 
     }) 
   }
