@@ -19,8 +19,8 @@ export class LoginpageComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      user: [''],
-      password: [''],
+      user: ['test@gmail.com'],
+      password: ['test@123'],
 
     }) 
   }
@@ -33,7 +33,8 @@ login(){
       email :this.loginForm.value.user,
       password : this.loginForm.value.password,
     }
-    console.log(credential);
+
+    // this.auth.login(credential.email,credential.password)
     
   this.auth.login(credential.email,credential.password).pipe(
     this.toast.observe({

@@ -6,6 +6,10 @@ import { collection, getFirestore } from '@firebase/firestore';
 import { Auth } from '@angular/fire/auth';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { sendPasswordResetEmail } from "firebase/auth";
+// import { AngularFireAuth} from '@angular/fire/compat/auth'
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http'
+import { Database } from '@angular/fire/database';
 
 
 @Injectable({
@@ -14,7 +18,8 @@ import { sendPasswordResetEmail } from "firebase/auth";
 export class FireserviceService {
   getEditData: any = []
 
-  constructor(private fService: Firestore, private auth : Auth) { }
+
+  constructor(private fService: Firestore, private auth : Auth,  private router:Router,private http: HttpClient, private db:Database ) { }
 
   // Registration Data
 
@@ -53,6 +58,7 @@ export class FireserviceService {
 
 login(username : string, password: string){
   return from(signInWithEmailAndPassword(this.auth,username,password));
+  
 }
 
 signUp(name:string, email:string, password:string){
@@ -64,17 +70,16 @@ logout(){
   return from(this.auth.signOut());
 }
 
-// async resetPassword(email: string): Promise<void> {
-//   await this.afAuth.auth.sendPasswordResetEmail(email).then(() => {
-//      this.router.navigate(['auth/reset-confirm']);
-//   }).catch((error) => {
-//      this.notifier.showError(error.message);
-//   });
-// }
 
+forgotpassword(){
+  // this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=[API_KEY]`)
+}
+ adduserdata(payload : any){
+  // const dbref = this.db.list('')
+  // dbref.push(payload)
 
-
-
+ }
+ 
 }
 
 

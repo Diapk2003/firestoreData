@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FireserviceService } from '../fireservice.service';
 import { Data } from '../data';
+import { Database, ref, set } from '@angular/fire/database';
 @Component({
   selector: 'app-registrationform',
   templateUrl: './registrationform.component.html',
@@ -16,7 +17,7 @@ export class RegistrationformComponent implements OnInit {
   Registrationform!: FormGroup
   isEditable: boolean = false
 
-  constructor(private formbuilder: FormBuilder, private router: Router, private dataService: FireserviceService, private route: ActivatedRoute) { }
+  constructor(private formbuilder: FormBuilder, private router: Router, private dataService: FireserviceService, private route: ActivatedRoute , private db:Database) { }
 
   ngOnInit(): void {
 
@@ -49,35 +50,35 @@ export class RegistrationformComponent implements OnInit {
   }
 
 
-  submit() {
-    const payload: Data = {
-      id: '',
-      data_name: this.Registrationform.value.Name,
-      data_address: this.Registrationform.value.Address,
-      data_pincode: this.Registrationform.value.PinCode,
-      data_mobileNo: this.Registrationform.value.MobilNumber,
-      data_password: this.Registrationform.value.Password,
-      data_userid: this.Registrationform.value.userid
-    }
+  // submit() {
+  //   const payload: Data = {
+  //     id: '',
+  //     data_name: this.Registrationform.value.Name,
+  //     data_address: this.Registrationform.value.Address,
+  //     data_pincode: this.Registrationform.value.PinCode,
+  //     data_mobileNo: this.Registrationform.value.MobilNumber,
+  //     data_password: this.Registrationform.value.Password,
+  //     data_userid: this.Registrationform.value.userid
+  //   }
 
-    if (this.userId != undefined) {
+  //   if (this.userId != undefined) {
 
-      this.dataService.updateData(this.userId, payload).then(() => {
-        alert("Note Update Successfully")
-        this.Registrationform.reset()
-      })
+  //     this.dataService.updateData(this.userId, payload).then(() => {
+  //       alert("Note Update Successfully")
+  //       this.Registrationform.reset()
+  //     })
 
 
-    } else {
-      this.dataService.addData(payload).then((res) => {
-        if (res) {
-          alert('Data Added Succesfully')
-        }
-        this.Registrationform.reset()
-      })
-    }
+  //   } else {
+  //     this.dataService.addData(payload).then((res) => {
+  //       if (res) {
+  //         alert('Data Added Succesfully')
+  //       }
+  //       this.Registrationform.reset()
+  //     })
+  //   }
 
-  }
+  // }
 
   backtogal() {
     this.router.navigate(['dashbord'])
@@ -90,6 +91,20 @@ export class RegistrationformComponent implements OnInit {
     this.Registrationform.controls['PinCode'].setValue(this.editData.data_pincode)
     this.Registrationform.controls['MobilNumber'].setValue(this.editData.data_mobileNo)
     this.Registrationform.controls['Password'].setValue(this.editData.data_password)
+  }
+
+  submit(){ 
+    set(ref(this.db,'Registration Form/' + this.Registrationform.value.Name),{
+      id: '',
+      name: this.Registrationform.value.Name,
+      address: this.Registrationform.value.Address,
+      pincode: this.Registrationform.value.PinCode,
+      mobileNo: this.Registrationform.value.MobilNumber,
+      password: this.Registrationform.value.Password,
+      userid: this.Registrationform.value.userid
+    })
+    alert("Users add Succesfully....")
+    this.Registrationform.reset()
   }
 
 
